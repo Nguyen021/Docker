@@ -1,0 +1,83 @@
+03/04/2023 (Mon):
+- Install tools VS code, Visual Studio Community, PyCharm (3h)
+- Attendance: SQL Server 2019, Git, Navicat Premium 16, MySQL workbenchSourceTree, DockerDesktop (2.5h
+- Research Google searching skill (1h)
+- Use Navicat setup sample database (1.5h)
+- 
+Today:
+- Learn and Research about Docker
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- Các khái niệm cơ bản về Docker/docker-compose
+	Docker 
+	
+	Container: một container như một khung hộp chứa tiến trình chạy cho một ứng dụng	và độc lập với các tiến trình khác hay tài nguyên của hệ thống
+
+	Image: Mỗi container độc lập với nhau và với hệ thống,mỗi container chứa các hệ 
+	thống files và settings riêng  phục vụ cho việc chạy ứng dụng các file system này được cung cấp bởi Docker Image nơi chứa mọi thứ về code, thư viện, file cấu hình, biến môi trường
+	
+	Docker image chính là khung định hình cho container nó sẽ tạo ra container khi 
+	thực hiện chạy image
+
+	Docker-compose: một công cụ giúp định nghĩa và chạy nhiều container trong ứng dụng dùng Docker, chúng ta có thể cấu hình các service của ứng dụng, có thể sử dụng lệnh để tạo ra tất cả service của ứng dụng
+	Compose làm việc trên tất cả các môi trường: production, dev, testing Compose 
+	cũng có thể sử dụng commands để quản lý toàn bộ vòng đời của service
+- Lợi ích của Docker
+	Thay vì cần cài các bộ công cụ phù hợp với từng dự án sử dụng các ngôn ngữ và thư viện khác nhau trên máy để có thể chạy được ứng dụng chúng ta chỉ cần tìm các container phù hợp bật container đó lên và sử dụng tắt hoặc xóa nếu không cần sẽ không bị ảnh hưởng xung đột với các phần mềm trên máy
+	Cài đặt container nhanh tiết kiệm thời gian
+	Linh hoạt trong việc chia sẻ tài nguyên vì độc lập với máy chính
+	Triển khai ứng dụng hoặc di chuyển một cách nhanh chóng 
+	Dễ bảo trì ứng dụng
+	Bảo mật tốt hơn vì cần ít quyền để làm việc với container và không phục thuộc phần mềm
+
+
+docker build -t getting-started .
+Lệnh docker build sử dụng Dockerfile để build mới một container image
+
+docker run -dp 3000:3000 getting-started
+docker build -t getting-started .
+build lại version update của image
+
+Khi một container chạy nó sử dụng nhiều layers của images của chính nhó mỗi container có một scratch space riêng để create/update/remove bất kỳ sự thay đổi từ container khác có thể dùng cùng image cũng sẽ không ảnh hưởng đến container hiện tại.
+Container volume
+tạo một volume dùng docker volume create
+docker volume create todo-db
+
+Part 7 Multi container apps
+mặc định container chạy độc lập với các process và container khác trên cùng máy vậy làm thế nào các container giao tiếp với nhau câu trả lời là networking
+	Có hai cách để đặt một container vào một network: 
+gán mạng khi bắt đầu container.
+ Kết nối một container đã chạy với mạng.
+
+tạo volume
+docker creta volume
+
+connet voi volume
+docker run -dp 3000:3000 --mount type=volume,src=new-todo,target=/etc/todos getting-started
+xem ds volume
+docker volume ls
+chay lai sau khi remove container
+docker run -dp 3000:3000 -v new-todo:/etc/todos getting-started
+
+
+https://hub.docker.com/_/phpmyadmin
+
+
+
+
